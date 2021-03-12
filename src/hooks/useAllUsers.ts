@@ -30,5 +30,11 @@ export const useAllUsers = () => {
       .finally(() => {
         setLoading(false);
       });
+    // tsconfig.json の compilerOptions lib es2015 -> es2018 へ
+    // 変更すると、 finally が使えるようになる。
+    // 何が起きても最後に実行する内容を指定できる。
+    // ここでは最後に必ず setLoading を false に書き換える処理を行う。
   };
+
+  return { getUsers, userProfiles, loading, error };
 };
